@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="main.css">.
+		<title>One-dimensional Cellular Automaton</title>
+	</head>
+
+	<body>
+
+	    <h1>One-dimensional Cellular Automaton</h1>
+	   	
+	   	<p id="langues"><a href="index_fr.html">Français</a> | Anglais</p>
+
+	    <hr><br>
+	    
+	    <a>Rule's number:</a>
+	    
+	    <input id="box_1" type="number" onkeydown = "if(event.keyCode == 13){document.getElementById('idPrint').click()}">
+	    
+	    <a>Number of shown generations:</a>
+	    <input id="box_2" type="number" onkeydown = "if(event.keyCode == 13){document.getElementById('idPrint').click()}">
+	    
+	    <input id="idPrint" type="button" value=" SHOW " onclick="func();">
+
+	    <br><br>
+
+	    <a>We advise you to enter the following rules number: 126, 110, 30, 254, 250.</a> <br>
+	    <a>It is advised to let the cellular automaton evolve, for at least, 300 generations.</a>
+
+		<br><br><br><br><br>
+
+		<canvas id="canvas" width="1200" height="1200"></canvas>
+		<script src="main.js"> </script>
+
+	</body>
+
+
+</html>

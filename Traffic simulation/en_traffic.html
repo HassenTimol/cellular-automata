@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic simulation</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+
+    <div id="GUI">
+      <button id="play">Play</button>
+      <button id="reset">Reset</button>
+      <button id="follow">Unfollow</button>
+      <button id="seeSpeeds">Hide speeds</button>
+
+      <div id="settings">
+        <h3 id="promoter">Try to change the following settings to see how road traffic behaves</h3>
+        <div class="displayBox" id="maxSpeedValue"></div>
+        <div class="sliderIndicator">Maximum speed</div>
+        <input type="range" min="1" max="20" value="5" class="slider" id="maxSpeedSlider">
+
+        <div class="displayBox" id="densityValue"></div>
+        <div class="sliderIndicator">Traffic density</div>
+        <input type="range" min="0.1" max="1" value="0.35" step="0.01" class="slider" id="densitySlider">
+
+        <div class="displayBox" id="slowDownProbValue"></div>
+        <div class="sliderIndicator">Probability of slowing down</div>
+        <input type="range" min="0" max="100" value="10" step="0.1" class="slider" id="slowDownProbSlider">
+
+        <div class="displayBox" id="animationSpeedValue"></div>
+        <div class="sliderIndicator">Animation speed</div>
+        <input type="range" min="1" max="70" value="5" step="0.1" class="slider" id="animationSpeedSlider">
+
+        <div class="displayBox" id="roadLengthValue"></div>
+        <div class="sliderIndicator">Road length</div>
+        <input type="range" min="10" max="500" value="19" class="slider" id="roadLengthSlider">
+
+        <div class="displayBox" id="numOfGenValue"></div>
+        <div class="sliderIndicator">Number of generations</div>
+        <input type="range" min="10" max="500" value="12" class="slider" id="numOfGenSlider">
+
+        <table id="populationDetailTable">
+          <tr>
+            <td class="infoIndicator">Average speed</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator">Average flow</td>
+            <td class="infoValue"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <span id="instructPointer">?</span>
+    <span id="instructions">
+      <h3>What is a cellular automaton?</h3>
+      A cellular automaton consists of a grid of cells, each in one of a finite number of states. For each cell, a set of cells called its neighbourhood is defined relative to the specified cell. An initial state (t = 0) is selected for the grid by assigning a state for each cell. Each cell then evolves according to a set of rules. The new state of a cell is typically defined in terms of the previous states of the cell and its neighbourhood.
+
+
+      <h3>How does this cellular automaton work?</h3>
+      This cellular automaton allows you to simulate traffic on a single-lane road. Each rectangle represents a car moving to the right and each line represents a different generation. The cars have an integer speed ranging from 0 to a defined maximum speed. Finally, the road is circular, meaning that when a car arrives at the end, it is automatically brought back to the beginning.
+
+
+      <h3>The rules</h3>
+      <ul>
+        <li>Initial state: The road is initialised with a number of cars defined from the traffic density. Each car is assigned a random speed between 0 and the maximum speed.</li><br>
+        <li>Evolution (the following set of rules occurs for each car of each generation):
+          <ol>
+            <li>Acceleration: All cars not at the maximum velocity have their velocity increased by one unit. For example, if the velocity is 4, it is increased to 5.</li><br>
+            <li>Slowing down: All cars are checked to see if the distance between it and the car in front is smaller than its current speed. If the distance is smaller than the velocity, the velocity is reduced to the number of empty cells in front of the car to avoid a collision. For example, if the velocity of a car is now 5, but there are only 3 free cells in front of it, with the fourth cell occupied by another car, the car's velocity is reduced to 3.</li><br>
+            <li>Randomization: The speed of all cars that have a velocity of at least 1, is now reduced by one unit with some probability p. For example, if p = 0.5, then if the velocity is 4, it is reduced to 3 50% of the time.</li><br>
+            <li>Car motion: All cars are moved forward the number of cells equal to their velocity. For example, if the velocity is 3, the car is moved forward 3 cells.</li>
+          </ol>
+        </li>
+      </ul>
+    </span>   
+  </body>
+  <script src="p5.min.js"></script>
+  <script src="sketch.js"></script>
+</html>
+

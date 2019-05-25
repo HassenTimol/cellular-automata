@@ -1,0 +1,157 @@
+body {
+    overflow: scroll;
+    background-color: #FFFACD;
+}
+
+#title {
+    position: fixed;
+    top : -22px;
+    left: 5px;
+    padding-top: 25px;
+    background-color: #3e993e;
+    width: 99%;
+    height: 55px;
+    border-radius: 0 0 20px 20px;
+    font-size: 40px;
+}
+
+#gen {
+    font-size: 40px;
+    color: red;
+    position: absolute;
+    top: 7px;
+    right: 0px;
+}
+
+button {
+    position: fixed;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    top: 10px;
+}
+
+
+#playButton {
+    left: 20px;
+}
+
+#clearButton {
+    left: 140px;
+}
+
+#oneGen {
+    left: 260px;
+}
+
+#initializeButton {
+    left: 380px;
+}
+
+#figuresButton {
+    left: 500px;
+}
+
+#figures {
+    position: fixed;
+    border-radius: 12px;
+    background-color: grey;
+    height: 400px;
+    width: 450px;
+    top: 90px;  
+}
+
+#planeurHDButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#planeurHGButton {
+    position: absolute;
+    top: 10px;
+    left: 120px;
+}
+
+#planeurBDButton {
+    position: absolute;
+    top: 10px;
+    left: 230px;
+}
+
+#planeurBGButton {
+    position: absolute;
+    top: 10px;
+    left: 340px;
+}
+
+#canonPlaneursHDButton {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+}
+
+#canonPlaneursHGButton {
+    position: absolute;
+    top: 60px;
+    left: 120px;
+}
+
+#canonPlaneursBDButton {
+    position: absolute;
+    top: 60px;
+    left: 230px;
+}
+
+#canonPlaneursBGButton {
+    position: absolute;
+    top: 60px;
+    left: 340px;
+}
+
+#vaisseauDButton{
+    position: absolute;
+    top: 110px;
+    left: 10px;
+}
+
+#vaisseauGButton{
+    position: absolute;
+    top: 110px;
+    left: 120px;
+}
+
+#vaisseauHButton{
+    position: absolute;
+    top: 110px;
+    left: 230px;
+}
+
+#vaisseauBButton{
+    position: absolute;
+    top: 110px;
+    left: 340px;
+}
+
+table {
+    position: relative;
+    top: 100px;
+}
+
+td {
+    width: 18px;
+    height: 18px;
+    border: 1px solid black;
+    cursor: pointer;
+    min-width: 18px;
+    min-height: 18px;
+}
+
+table, td {
+    border-collapse: collapse;
+}
+
+.hide {
+    display: none;
+}

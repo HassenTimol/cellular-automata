@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Game of Life</title>
+		<link rel="stylesheet" href="main.css">
+	</head>
+
+	<body>
+		
+		<div id="box">
+			<table>
+			</table>
+		</div>
+		
+
+		<div id="bar">Game of Life</div>
+		
+		<div id="gen">
+			<span id="genPhrase">Generation:</span>
+			<span id="genValue">0</span>
+		</div>
+		
+		<button id="playButton">Play</button>
+		<button id="clearButton">Clear board</button>
+		<button id="oneGen">+1 gen</button>
+		<button id="initializeButton">Reset</button>
+		
+		<button id="figuresButton">Patterns</button>
+
+	<!-- LES STRUCTURES -->
+
+		<div class='hide' id="figures">
+			<button id="planeurHDButton">Glider TR</button>
+			<button id="planeurHGButton">Glider TL</button>
+			<button id="planeurBDButton">Glider BR</button>
+			<button id="planeurBGButton">Glider BL</button>
+			<button id="canonPlaneursHDButton">Gosper glider gun TR</button>
+			<button id="canonPlaneursHGButton">Gosper glider gun TL</button>
+			<button id="canonPlaneursBDButton">Gosper glider gun BR</button>
+			<button id="canonPlaneursBGButton">Gosper glider gun BL</button>
+			<button id="vaisseauDButton">Spaceship R</button>
+			<button id="vaisseauGButton">Spaceship L</button>
+			<button id="vaisseauHButton">Spaceship T</button>
+			<button id="vaisseauBButton">Spaceship B</button>
+		</div>
+		
+		<script src='main.js'></script>
+
+	</body>
+
+</html>

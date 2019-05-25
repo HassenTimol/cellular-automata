@@ -1,0 +1,44 @@
+body{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+    margin-left: 10%;
+    background-color: #FFFACD;
+    font-family: Palatino, Century Schoolbook, Times New Roman;
+}
+
+#langues{
+    text-align: Right;
+    font-style: Italic;
+    font-size: 90%;
+}
+
+#titre{
+    text-align: Center;
+    font-size: 150%;
+}
+
+#sous-titre{
+    text-align: Center;
+    font-size: 130%;
+}
+
+#intro{
+    text-align: justify;
+}
+
+#preambule{
+    text-align: Justify;
+    font-size : 90%;
+    font-style: italic;
+}
+
+h2{
+    font-size: 125%;
+    text-align: Center;
+}
+
+#para{
+    font-size: 100%;
+    text-align: justify;
+}

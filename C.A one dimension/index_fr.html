@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="main.css">.
+        <title>Automate Cellulaire Unidimensionnel</title>
+    </head>
+
+    <body>
+
+        <h1> Automate Cellulaire Unidimensionnel </h1>
+
+        <p id="langues">Français | <a href="index_en.html">Anglais</a></p>
+        
+        <hr><br>
+        
+        <a> Numéro de la règle : </a>
+        
+        <input id="box_1" type="number" onkeydown = "if(event.keyCode == 13){document.getElementById('idPrint').click()}">
+        
+        <a>Nombre de generations : </a>
+        <input id="box_2" type="number" onkeydown = "if(event.keyCode == 13){document.getElementById('idPrint').click()}">
+        
+        <input id="idPrint" type="button" value=" AFFICHER " onclick="func();">
+
+        <br><br>
+
+        <a>Nous vous conseillons les règles 126, 110, 30, 254, 250.</a> <br>
+        <a>Il est conseillé de faire évoluer l'A.C. au cours de 300 générations au moins.</a>
+
+        <br><br><br><br><br>
+
+        <canvas id="canvas" width="1200" height="1200"></canvas>
+        <script src="main.js"> </script>
+    
+    </body>
+
+</html>

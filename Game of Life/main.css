@@ -1,0 +1,96 @@
+body {
+	overflow: auto;
+	background-color: #00cc66;
+}
+
+
+#bar {
+	position: fixed;
+	top : -22px;
+	left: -20px;
+	padding-top: 25px;
+	width: 105%;
+	height: 55px;
+	font-size: 40px;
+	padding-left: 710px;
+}
+
+
+
+#gen {
+	font-size: 40px;
+	color: red;
+	position: fixed;
+	top: 7px;
+	right: 30px;
+}
+
+button {
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 20px;
+	height: 45px;
+	outline: none;
+	position: fixed;
+	width: 90px;
+	background-color: rgb(200, 200, 200); 
+	border: none;
+	transition: 0.5s;
+	top: 5px;
+}
+
+button:hover {
+	background-color: rgb(100, 100, 100);
+}
+
+
+#figures {
+	position: fixed;
+	border-radius: 12px;
+	background-color: rgba(100, 100, 100, 255);
+	height: 400px;
+	width: 450px;
+	top: 90px;	
+}
+
+
+table {
+	position: relative;
+}
+
+#box {
+	width: 97%;
+	height: 90%;
+	position: fixed;
+	top: 70px;
+	left: 15px;
+	overflow: auto;
+}
+
+td {
+	width: 18px;
+	height: 18px;
+	border: 1px solid black;
+	cursor: pointer;
+	min-width: 18px;
+	min-height: 18px;
+}
+
+table, td {
+	border-collapse: collapse;
+}
+
+.hide {
+	display: none;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+	height: 12px;
+}
+
+
+::-webkit-scrollbar-thumb {
+	background-color: #333333;
+	border-radius: 6px;
+}

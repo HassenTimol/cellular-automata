@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagel-Schreckenberg</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+
+    <div id="GUI">
+      <button id="play">Jouer</button>
+      <button id="reset">Initialiser</button>
+      <button id="follow">Ne plus Suivre</button>
+      <button id="seeSpeeds">Cacher les vitesses</button>
+
+      <div id="settings">
+        <h3 id="promoter">Essayez de changer les paramètres ci-dessous pour voir comment le trafic routier évolue</h3>
+        <div class="displayBox" id="maxSpeedValue"></div>
+        <div class="sliderIndicator">Vitesse maximale</div>
+        <input type="range" min="1" max="20" value="5" class="slider" id="maxSpeedSlider">
+
+        <div class="displayBox" id="densityValue"></div>
+        <div class="sliderIndicator">Densité de trafic</div>
+        <input type="range" min="0.1" max="1" value="0.35" step="0.01" class="slider" id="densitySlider">
+
+        <div class="displayBox" id="slowDownProbValue"></div>
+        <div class="sliderIndicator">Probabilité de ralentir</div>
+        <input type="range" min="0" max="100" value="10" step="0.1" class="slider" id="slowDownProbSlider">
+
+        <div class="displayBox" id="animationSpeedValue"></div>
+        <div class="sliderIndicator">Vitesse d'animation</div>
+        <input type="range" min="1" max="70" value="5" step="0.1" class="slider" id="animationSpeedSlider">
+
+        <div class="displayBox" id="roadLengthValue"></div>
+        <div class="sliderIndicator">Longueur de la route</div>
+        <input type="range" min="10" max="500" value="19" class="slider" id="roadLengthSlider">
+
+        <div class="displayBox" id="numOfGenValue"></div>
+        <div class="sliderIndicator">Nombre de générations</div>
+        <input type="range" min="10" max="500" value="12" class="slider" id="numOfGenSlider">
+
+        <table id="populationDetailTable">
+          <tr>
+            <td class="infoIndicator">Vitesse moyenne</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator">Débit moyen</td>
+            <td class="infoValue"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <span id="instructPointer">?</span>
+    <span id="instructions">
+      <h3>Qu'est-ce qu'un automate cellulaire?</h3>
+      Un automate cellulaire consiste en une grille régulière de « cellules » contenant chacune un « état » choisi parmi un ensemble fini et qui peut évoluer au cours du temps. L'état d'une cellule à un moment donné dépend de son état précendent et de l'état d'un nombre fini de cellules appelé son « voisinage ». À chaque nouvelle unité de temps, les mêmes règles sont appliquées simultanément à toutes les cellules de la grille, produisant une nouvelle « génération » de cellules dépendant entièrement de la génération précédente.
+
+
+      <h3>Comment cet automate cellulaire fonctionne-t-il?</h3>
+      Cet automate cellulaire permet de simuler les embouteillages sur une route à une voie. Chaque rectangle représente une voiture se déplaçant vers la doite et chaque ligne représente une nouvelle génération. Les voitures ont une vitesse entière allant de 0 à une vitesse maximale définie. Finalement, la route est circulaire. Ainsi, lorsqu'une voiture arrive à la fin, elle est automatiquement ramenée au début de la route. 
+
+      <h3>Les règles</h3>
+      <ul>
+        <li>Etat initial: La route est initialisée avec un nombre de voiture détérminé à partir de la densité du trafic. Une vitesse comprise entre 0 et la vitesse maximale est ensuite attribuée à chaque voiture.</li><br>
+        <li>Evolution (les règles suivantes sont appliqués pour chaque voiture de chaque génération):
+          <ol>
+            <li>Accélération: Toute voiture dont la vitesse est inférieure à la vitesse maximale voit sa vitesse augmentée de 1. Par exemple, si une voiture a pour vitesse 4, sa vitesse est augmentée à 5 pour la prochaine génération.</li><br>
+            <li>Ralentir: Pour chaque voiture, on vérifie la distance entre la voiture et celle de devant. Si la distance est inférieur à la vitesse de la voiture, la vitesse est réduite à la distance séparant les deux voitures pour éviter un accident. Par exemple si une voiture de vitesse 5 a une autre voiture situé  3 unités devant elle, sa vitesse est réduite à 2.</li><br> 
+            <li>Randomisation: La vitesse de chaque voiture ayant une vitesse supérieure à 0 est réduite de 1 avec une probabilité p. Par exemple, si p = 0.5 et une voiture a une vitesse 4, la voiture va voir sa vitesse diminuer à 3 dans 50% des cas. </li><br>
+            <li>Mouvement: Chaque voiture avance d'un nombre de cellules égale à sa vitesse. Par exemple, si une voiture à une vitesse de 3, celle-ci est avancée de 3 cellules vers la droite.</li>
+          </ol>
+        </li>
+      </ul>
+    </span>   
+  </body>
+  <script src="p5.min.js"></script>
+  <script src="sketch.js"></script>
+</html>

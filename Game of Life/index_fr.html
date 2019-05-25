@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Jeu de la vie</title>
+		<link rel="stylesheet" href="main.css">
+	</head>
+
+	<body>
+		
+		<div id="box">
+			<table>
+			</table>
+		</div>
+		
+		<div id="bar">Jeu de la vie</div>
+		
+		<div id="gen">
+			<span id="genPhrase">Génération:</span>
+			<span id="genValue">0</span>
+		</div>
+		
+		<button id="playButton">Jouer</button>
+		<button id="clearButton">Effacer</button>
+		<button id="oneGen">+1 gen</button>
+		<button id="initializeButton">Initialiser</button>
+		
+		<button id="figuresButton">Structures</button>
+
+		<script>
+			let f = document.getElementById('figuresButton');
+			f.style.width = '105px';
+		</script>
+
+	<!-- LES STRUCTURES -->
+
+		<div class='hide' id="figures">
+			<button id="planeurHDButton">Planeur HD</button>
+			<button id="planeurHGButton">Planeur HG</button>
+			<button id="planeurBDButton">Planeur BD</button>
+			<button id="planeurBGButton">Planeur BG</button>
+			<button id="canonPlaneursHDButton">Canon à planeurs HD</button>
+			<button id="canonPlaneursHGButton">Canon à planeurs HG</button>
+			<button id="canonPlaneursBDButton">Canon à planeurs BD</button>
+			<button id="canonPlaneursBGButton">Canon à planeurs BG</button>
+			<button id="vaisseauDButton">Vaisseau D</button>
+			<button id="vaisseauGButton">Vaisseau G</button>
+			<button id="vaisseauHButton">Vaisseau H</button>
+			<button id="vaisseauBButton">Vaisseau B</button>
+		</div>
+		
+		<script src='main.js'></script>
+
+	</body>
+
+</html>

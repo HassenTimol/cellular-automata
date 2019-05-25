@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Epidemic simulation</title>
+    <link rel="stylesheet" href="main.css">
+    </script>
+
+  </head>
+  <body>
+
+    <div id="GUI">
+      <button id="play">Jouer</button>
+      <button id="reset">Initialiser</button>
+      <span id="gen">Génération: <span id="genValue">0</span></span>
+
+
+      <div id="settings">
+        <h3 id="promoter">Essayez de changer les paramètres ci-dessous pour voir comment l'épidémie se comporte</h3>
+        <div class="displayBox" id="infectProbValue"></div>
+        <div class="sliderIndicator">Probabilité de transmission</div>
+        <input type="range" min="0" max="100" value="30" class="slider" id="infectProbSlider">
+
+        <div class="displayBox" id="dieProbValue"></div>
+        <div class="sliderIndicator">Probabilité de mort</div>
+        <input type="range" min="0" max="100" value="10" class="slider" id="dieProbSlider">
+
+        <div class="displayBox" id="vaccineProbValue"></div>
+        <div class="sliderIndicator">Taux de vaccination</div>
+        <input type="range" min="0" max="100" value="10" class="slider" id="vaccineProbSlider">
+
+        <div class="displayBox" id="speedValue"></div>
+        <div class="sliderIndicator">Vitesse d'animation</div>
+        <input type="range" min="1" max="50" value="5" step="0.1" class="slider" id="speedSlider">
+
+        <div class="displayBox" id="dimensionValue"></div>
+        <div class="sliderIndicator">Dimensions</div>
+        <input type="range" min="5" max="100" value="50" class="slider" id="dimensionSlider">
+
+        <table id="populationDetailTable">
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Mort</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Malade</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Immunisé</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Vacciné</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Autre</td>
+            <td class="infoValue"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <span id="instructPointer">?</span>
+    <span id="instructions">
+      <h3>Qu'est-ce qu'un automate cellulaire?</h3>
+      Un automate cellulaire consiste en une grille régulière de « cellules » contenant chacune un « état » choisi parmi un ensemble fini et qui peut évoluer au cours du temps. L'état d'une cellule à un moment donné dépend de son état précendent et de l'état d'un nombre fini de cellules appelé son « voisinage ». À chaque nouvelle unité de temps, les mêmes règles sont appliquées simultanément à toutes les cellules de la grille, produisant une nouvelle « génération » de cellules dépendant entièrement de la génération précédente.
+
+
+      <h3>Comment cet automate cellulaire fonctionne-t-il?</h3>
+      Cet automate cellulaire vous permet de simuler une épidémie. Chaque cellule de la grille représente un individu au sein d'une population. Les cellules ont 8 voisins et 5 états possibles:
+      <ol>
+        <li>Mort (noir): Un individu mort n'intéragit pas avec son voisinage. Lorsqu'une cellule meurt, celle-ci n'évolue plus jusqu'à la fin de la simulation.</li><br>
+
+        <li>Malade (jaune): Après une génération, un individu malade peut soit se rétablir est être immunisée soit mourir. De plus, une cellule malade peut transmettre sa maladie à une cellule saine voisine.</li><br>
+
+        <li>Immunisé (vert): Une cellule immunisée est une cellule qui s'est rétablie de la maladie et ne peut donc pas tomber malade à nouveau. Lorsqu'une cellule est immunisée, elle le reste jusqu'à la fin de la simulation.</li><br>
+
+        <li>Vacciné (bleu): Tout comme une cellule immunisée, une cellule vaccinée ne peut pas tomber malade. La seule différence est qu'un individu vacciné n'a pas besoin d'être tombé  malade pour être immunisé. Un nombre fixe de cellules vaccinées existe au cours de la simulation.</li><br>
+
+        <li>Saine (blanc): Une cellule saine n'est passée par aucun des état listés ci-dessus.</li>
+      </ol>
+
+
+      <h3>Les règles</h3>
+      <ul>
+        <li>Etat initial: La grille est initialisée avec une cellule malade à son centre. Chacune des autres cellules a une probabilité d'être vacciné. </li><br>
+        <li>Evolution (les règles suivantes s'appliquent pour chaque cellule de chaque génération):
+          <ol>
+            <br>
+            <li>Chaque cellule malade à une probabilité de transmettre sa maladie à une cellule saine voisine.</li><br>
+            <li>Chaque cellule malade a une probabilité de mourir de sa maladie. Si la cellule ne meurt pas, elle se rétablit et est immunisée.</li>
+          </ol>
+        </li>
+      </ul>
+    </span>  
+  </body>
+  <script src="p5.min.js"></script>
+  <script src="sketch.js"></script>
+</html>

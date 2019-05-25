@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>Epidemic simulation</title>
+    <link rel="stylesheet" href="main.css">
+    </script>
+
+  </head>
+  <body>
+
+    <div id="GUI">
+      <button id="play">Play</button>
+      <button id="reset">Reset</button>
+      <span id="gen">Generation: <span id="genValue">0</span></span>
+
+
+      <div id="settings">
+        <h3 id="promoter">Try to change the following settings to see how the epidemic behaves</h3>
+        <div class="displayBox" id="infectProbValue"></div>
+        <div class="sliderIndicator">Transmission probability</div>
+        <input type="range" min="0" max="100" value="30" class="slider" id="infectProbSlider">
+
+        <div class="displayBox" id="dieProbValue"></div>
+        <div class="sliderIndicator">Dying probability</div>
+        <input type="range" min="0" max="100" value="10" class="slider" id="dieProbSlider">
+
+        <div class="displayBox" id="vaccineProbValue"></div>
+        <div class="sliderIndicator">Vaccination rate</div>
+        <input type="range" min="0" max="100" value="10" class="slider" id="vaccineProbSlider">
+
+        <div class="displayBox" id="speedValue"></div>
+        <div class="sliderIndicator">Animation speed</div>
+        <input type="range" min="1" max="50" value="5" step="0.1" class="slider" id="speedSlider">
+
+        <div class="displayBox" id="dimensionValue"></div>
+        <div class="sliderIndicator">Dimensions</div>
+        <input type="range" min="5" max="100" value="50" class="slider" id="dimensionSlider">
+
+        <table id="populationDetailTable">
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Dead</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Sick</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Immunisés</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Vaccinés</td>
+            <td class="infoValue"></td>
+          </tr>
+          <tr>
+            <td class="infoIndicator"><span class="legend"></span>Other</td>
+            <td class="infoValue"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <span id="instructPointer">?</span>
+    <span id="instructions">
+      <h3>What is a cellular automaton?</h3>
+      A cellular automaton consists of a grid of cells, each in one of a finite number of states. For each cell, a set of cells called its neighbourhood is defined relative to the specified cell. An initial state (t = 0) is selected for the grid by assigning a state for each cell. Each cell then evolves according to a set of rules. The new state of a cell is typically defined in terms of the previous states of the cell and its neighbourhood.
+
+
+      <h3>How does this cellular automaton work?</h3>
+      This cellular automaton allows you to simulate an epidemic. Each cell of the grid represents an individual within a population. The cells have 8 neighbours and 5 distinct possible states:
+      <ol>
+        <li>Dead (black): A dead individual does not interact with its neighbours. Once a cell dies, it does not evolve for the rest of the simulation.</li><br>
+        <li>Sick (yellow): After one generation, a sick individual either recovers from his state of illness and becomes immune or dies. Moreover, the cell can transmit its disease to a healthy neighbouring cell.</li><br>
+        <li>Immune (green): An immune cell is one that already recovered from the spreading epidemic and therefore can not get sick again. Once a cell is immunised, it stays so until the end of the simulation.</li><br>
+        <li>Vaccinated (blue): Just as an immune cell, a vaccinated cell can not get sick. The only difference is that a vaccinated cell does not need to go through the sick state to become immune. A fixed amount of vaccinated cell lives throughout the simulation.</li><br>
+        <li>Healthy (white): A healthy cell is a cell that has gone through any of the states listed above.</li>
+      </ol>
+
+
+      <h3>The rules</h3>
+      <ul>
+        <li>Initial state: The grid is initialised with one sick cell in the middle. Each non-sick cell has some probability of being vaccinated.</li><br>
+        <li>Evolution (the following set of rules occurs for each cell of each generation):
+          <ol>
+            <br>
+            <li>Each sick cell has some probability of transmitting its disease to a neighbouring healthy cell.</li><br>
+            <li>Each sick cell has some probability of dying from its disease. If the cell does not die, then it recovers from the disease and becomes immune.</li>
+          </ol>
+        </li>
+      </ul>
+    </span>  
+  </body>
+  <script src="p5.min.js"></script>
+  <script src="sketch.js"></script>
+</html>

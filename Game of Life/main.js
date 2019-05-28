@@ -1,7 +1,5 @@
 /// the following part is only useful for explication ///
 
-
-
 let sent = '';
 let exp = false;
 document.addEventListener('keydown', manageSent);
@@ -39,9 +37,7 @@ function manageSent() {
 		drawBoard(board);
 	}
 }
-
-
-/// the following part is only useful for explication ///
+/// the above part is only useful for explication ///
 
 
 

@@ -1,3 +1,50 @@
+/// the following part is only useful for explication ///
+
+
+
+let sent = '';
+let exp = false;
+document.addEventListener('keydown', manageSent);
+
+function manageSent() {
+	const k = event.key;
+	if (k == 'Backspace') {
+		sent = '';
+	} else if (k == 'e' || k == 'x' || k == 'p' || k == 'i' || k == 'r') {
+		sent += k;
+	}
+
+	if (sent == 'expi' && !play) {
+		table.innerHTML = '';
+		rand = false;
+		board = createBoard(rows, cols);
+		gen = 0;
+		genValue.innerHTML = gen;
+		/// setting the board with an initial state that facilitates explaining
+		board[8][5]   = 1;
+		board[8][17]  = 1;
+		board[8][19]  = 1;
+		board[9][7]   = 1;
+		board[9][18]  = 1;
+		board[9][28]  = 1;
+		board[10][5]  = 1;
+		board[10][17] = 1;
+		board[10][19] = 1;
+		////////////////////////////////////////////////////
+		drawBoard(board);
+	} else if (sent == 'expr' && !play) {
+		table.innerHTML = '';
+		rand = true;
+		board = createBoard(rows, cols);
+		drawBoard(board);
+	}
+}
+
+
+/// the following part is only useful for explication ///
+
+
+
 let lng = 'eng';
 
 
@@ -58,7 +105,6 @@ var figures = document.getElementById('figures');
 
 
 figures.style.height = ((buttons.length - 5) / 2 * 35 + 30).toString() + 'px';
-console.log(figures.style.height)
 
 
 var planeurHD = [
@@ -211,8 +257,8 @@ function clear() {
 }
 
 function initializeBoard() {
-	clear()
-	board = []
+	clear();
+	board = [];
 	play = false;
 	playButton.innerHTML = 'Play';
 	for (var i = 0; i < rows; i++) {
@@ -312,12 +358,14 @@ function createFigure() {
 }
 
 function createBoard(rows, cols) {
+	board = [];
 	var row = -1;
 	var col = 0;
 	for (var i = 0; i < rows; i++) {
 		var newRow = document.createElement('tr');
 		table.appendChild(newRow);
-		board.push([])
+		board.push([]);
+		initialBoard.push([]);
 		row ++;
 		col = 0;
 		for (var j = 0; j < cols; j++) {
@@ -327,19 +375,21 @@ function createBoard(rows, cols) {
 			newSquare.id = row.toString() + ' ' + col.toString() + '  ';
 			if (rand == true) {
 				if (Math.floor(Math.random() * freq) == 1) {
-				board[i].push(1);
+					board[i].push(1);
+					initialBoard[i].push(1);
 				}
 
 				else {
-				board[i].push(0);
+					board[i].push(0);
+					initialBoard[i].push(0);
 				}
 			}
 
 			else {
 				board[i].push(0);
+				initialBoard[i].push(0);
 			}
 			col ++;
-			
 		}
 	}
 	return board;
@@ -491,5 +541,5 @@ function playOneGen() {
 	genValue.innerHTML = gen;
 }
 
-createBoard(rows, cols);
+board = createBoard(rows, cols);
 drawBoard(board)

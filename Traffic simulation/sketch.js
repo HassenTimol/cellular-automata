@@ -12,11 +12,6 @@ if (playButton.innerHTML == 'Play') {
 }
 
 
-
-
-
-
-
 //////////   SETTINGS OF THE SIMULATION     /////////////
 
 let canvasWidth = window.innerWidth / 2 + 9.4/100 * window.innerWidth;
@@ -189,13 +184,12 @@ seeSpeedsButton.style.top = '85px';
 
 
 
-//////////   SETTING FOR THE SLIDERS, DISPLAYERS AND INDICATORS    /////////////
+//////////   SETTING FOR THE SLIDERS, DISPLAYERS    /////////////
 
 
 let settings = document.getElementById('settings');
 let sliders = document.getElementsByClassName('slider');
 let displayers = document.getElementsByClassName('displayBox');
-let indicators = document.getElementsByClassName('sliderIndicator');
 let maxMaxSpeed = 40;
 
 
@@ -324,6 +318,60 @@ function getMeanFlow() {
 //////////   SETTING FOR THE INFORMATION TABLE    /////////////
 
 
+/// the following part is only useful for explication ///
+
+let sent = '';
+let exp = false;
+document.addEventListener('keydown', manageSent);
+
+function manageSent() {
+  const k = event.key;
+  if (k == 'Backspace') {
+    sent = '';
+  } else if (k == 'e' || k == 'x' || k == 'p' || k == 'i' || k == 'r') {
+      sent += k;
+      let values;
+      if (sent == 'expi' && !playing) {
+        values = [5, 0.35, 10, 5, 19, 12]; 
+        seeSpeeds = true;
+        if (lng == 'eng') {
+          seeSpeedsButton.innerHTML = 'Hide speeds';
+        } else if (lng == 'fra') {
+          seeSpeedsButton.innerHTML = 'Cacher les vitesses';
+        }    
+      } else if (sent == 'expr' && !playing) {
+        values = [5, 0.35, 10, parseFloat(sliders[3].max), parseFloat(sliders[4].max), parseFloat(sliders[5].max)];
+        seeSpeeds = false;
+        if (lng == 'eng') {
+          seeSpeedsButton.innerHTML = 'See speeds';
+        } else if (lng == 'fra') {
+          seeSpeedsButton.innerHTML = 'Voir les vitesses';
+        }
+      }
+      if (sent == 'expi' || sent == 'expr') {
+        for (let i = 0; i < sliders.length; i++) {
+        sliders[i].value = values[i].toString();
+        displayers[i].innerHTML = values[i].toString();
+        maxSpeed = values[0];
+        density = values[1];
+        probSlowDown = values[2];
+        animationSpeed = values[3];
+        roadLength = floor(values[4]);
+        numOfGen = floor(values[5]);
+        displayers[4].innerHTML = roadLength;
+        displayers[5].innerHTML = numOfGen;
+        cellWidth = canvasWidth / roadLength;
+        cellHeight = canvasHeight / numOfGen;
+        background(255);
+        gen = 0;
+        cars = makeCars();
+        drawCars(cars);    
+      }
+    }
+  }
+}
+/// the above part is only useful for explication ///
+
 
 function randint(min, max) {
   return (Math.floor(Math.random() * (max - min) + min));
@@ -435,8 +483,8 @@ function evolveCars(cars) {
   return newCars;
 }
 
-function drawCars(cars) {
-  for (let car of cars) {
+function drawCars(arr) {
+  for (let car of arr) {
     car.draw();
   }
 }
@@ -466,12 +514,3 @@ function draw() {
     }
   }
 }
-
-
-
-
-
-
-
-
-

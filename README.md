@@ -1,6 +1,8 @@
 # Cellular automata
 
-This project implements four cellular automata and allows the user to visualise them in an interactive way.
+This project implements four cellular automata and allows the user to visualise them in an interactive way.  
+
+Learn more about cellular automata here: https://en.wikipedia.org/wiki/Cellular_automaton
 
 It includes John Conway's 'Game Of Life', which you can learn more about here: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 

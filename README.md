@@ -30,6 +30,3 @@ You can also download p5.js from here: https://p5js.org/download/
 
 Or use p5.js's online web editor: https://editor.p5js.org/
 
-## Authors
-
-This project has been realised by Hassen TIMOL and Takanori CODRON-AKIEDA as part of the 2019 Mauritius Science Quest.

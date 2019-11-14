@@ -30,3 +30,8 @@ You can also download p5.js from here: https://p5js.org/download/
 
 Or use p5.js's online web editor: https://editor.p5js.org/
 
+## Authors
+
+The authors of the hereby project are TIMOL Hassen, CODRON-AKIEDA Takanori, LI NIOW CHAN Ryan and HAUSSER Téo.
+This project has been a very long journey f 
+

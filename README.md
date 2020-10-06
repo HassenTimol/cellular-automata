@@ -9,7 +9,7 @@ It includes John Conway's 'Game Of Life', which you can learn more about here: h
 It also includes the well-known one-dimensional 'Elementary cellular automaton', which you can learn more about here: https://en.wikipedia.org/wiki/Elementary_cellular_automaton
 
 
-It finally includes two less-known cellular automata, one of them simulates the propagation of an epidemic within a population and the other one simulates the evolution of road traffic.
+It finally includes two less-known cellular automata, one of them models the propagation of an epidemic within a population and the other one models the evolution of road traffic.
 
 Note that the cellular-automaton designed to study road traffic is heavily inspired from the Nagel–Schreckenberg model, which you can learn more about here: https://en.wikipedia.org/wiki/Nagel%E2%80%93Schreckenberg_model
 
